@@ -6,5 +6,8 @@
   "author": {
     "name": "isak-pao",
     "email": "isak-pao@capcom.com"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5"
   }
 }
