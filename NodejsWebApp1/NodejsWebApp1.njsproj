@@ -14,7 +14,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>331d3b23-0cd0-4514-ac87-a46e44c19fb8</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>server.ts</StartupFile>
+    <StartupFile>src\server.ts</StartupFile>
     <StartWebBrowser>True</StartWebBrowser>
     <SearchPath>
     </SearchPath>
@@ -37,12 +37,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Scripts\tsd.json" />
-    <TypeScriptCompile Include="profile_demo.ts" />
-    <TypeScriptCompile Include="Profile_Demo\SpinFunc.ts" />
+    <Content Include="src\tsconfig.json" />
+    <TypeScriptCompile Include="src\profile_demo.ts" />
+    <TypeScriptCompile Include="src\Profile_Demo\SpinFunc.ts" />
     <TypeScriptCompile Include="Scripts\typings\mocha\mocha.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\node\node.d.ts" />
-    <TypeScriptCompile Include="Respond\HelloMessage.ts" />
-    <TypeScriptCompile Include="server.ts" />
+    <TypeScriptCompile Include="src\Respond\HelloMessage.ts" />
+    <TypeScriptCompile Include="src\server.ts" />
     <Content Include="package.json" />
     <Content Include="README.md" />
     <TypeScriptCompile Include="testing\UnitTest1.ts">
@@ -51,9 +52,10 @@
     </TypeScriptCompile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="src\" />
     <Folder Include="testing\" />
-    <Folder Include="Profile_Demo\" />
-    <Folder Include="Respond\" />
+    <Folder Include="src\Profile_Demo\" />
+    <Folder Include="src\Respond\" />
     <Folder Include="Scripts\" />
     <Folder Include="Scripts\typings\" />
     <Folder Include="Scripts\typings\mocha\" />
@@ -63,7 +65,7 @@
     <None Include="Scripts\_references.js" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="gruntfile.js" />
+    <Compile Include="gulpfile.js" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
@@ -76,7 +78,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>
-      grunt --no-color
+      <!--POST BUILD ACTION -->
     </PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

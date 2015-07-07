@@ -1,5 +1,6 @@
-﻿import Hello = require('./Respond/HelloMessage');
-import http = require('http');
+﻿import http = require('http');
+
+import Hello = require('./Respond/HelloMessage');
 var port: number = process.env.port || 1337;
 http.createServer(function (req: http.ServerRequest, res: http.ServerResponse) {
     var msg: Hello.HelloMessage = new Hello.HelloMessage();

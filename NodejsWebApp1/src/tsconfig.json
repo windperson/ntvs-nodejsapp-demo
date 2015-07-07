@@ -1,0 +1,8 @@
+﻿{
+  "compilerOptions": {
+    "module": "commonjs",
+    "sourceMap": true,
+    "target": "es5"
+  },
+  "files": ["../Scripts/typings**/*.d.ts","./**/*.ts"]
+}
