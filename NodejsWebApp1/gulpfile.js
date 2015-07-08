@@ -1,4 +1,5 @@
 ﻿var gulp = require('gulp');
+var gutil = require('gulp-util');
 var tsc = require('gulp-tsc');
 var runseq = require('run-sequence');
 var del = require('del');
@@ -23,11 +24,11 @@ gulp.task('compile:typescript', function () {
 gulp.task('clean', function () {
     del(paths.typescripts.out, function (err, paths) {
         if (paths && paths.length > 0) {
-            console.log('Deleted files/folders:');
-            console.log(paths.join('\n'));
+            gutil.log('Deleted files/folders:');
+            gutil.log(paths.join('\n'));
         }
         else {
-            console.log('Nothing to clean');
+            gutil.log('Nothing to clean');
         }
     });
 });
