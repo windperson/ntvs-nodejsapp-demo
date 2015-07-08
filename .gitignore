@@ -13,3 +13,4 @@ NodejsWebApp1/profile_demo.js
 NodejsWebApp1/Profile_Demo/SpinFunc.js
 */testing/*.js
 build/
+NodejsWebApp1/src/**/*.js
