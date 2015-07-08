@@ -14,7 +14,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>331d3b23-0cd0-4514-ac87-a46e44c19fb8</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>src\server.ts</StartupFile>
+    <StartupFile>src\profile_demo.js</StartupFile>
     <StartWebBrowser>True</StartWebBrowser>
     <SearchPath>
     </SearchPath>
