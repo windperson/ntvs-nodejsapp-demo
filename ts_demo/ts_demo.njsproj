@@ -14,7 +14,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>331d3b23-0cd0-4514-ac87-a46e44c19fb8</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>src\profile_demo.js</StartupFile>
+    <StartupFile>src\profile_demo.ts</StartupFile>
     <StartWebBrowser>True</StartWebBrowser>
     <SearchPath>
     </SearchPath>
@@ -46,6 +46,7 @@
     <TypeScriptCompile Include="src\server.ts" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <TypeScriptCompile Include="src\HttpMiscUtil.ts" />
     <TypeScriptCompile Include="testing\UnitTest1.ts">
       <SubType>Code</SubType>
       <TestFramework>Mocha</TestFramework>
