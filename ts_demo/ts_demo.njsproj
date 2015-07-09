@@ -3,8 +3,8 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <Name>NodejsWebApp1</Name>
-    <RootNamespace>NodejsWebApp1</RootNamespace>
+    <Name>ts_demo</Name>
+    <RootNamespace>ts_demo</RootNamespace>
     <ToolsVersionPromptShown>1.5</ToolsVersionPromptShown>
     <TypeScriptToolsVersion>1.5</TypeScriptToolsVersion>
   </PropertyGroup>

@@ -1,8 +1,17 @@
-﻿import http = require('http');
+﻿/// <reference path="../Scripts/typings/tsd.d.ts" />
+import http = require('http');
 import spinModule = require('./Profile_Demo/SpinFunc');
 var n = 0;
+var FAVICONURL = '/favicon.ico';
 var port: number = process.env.port || 1337;
 http.createServer(function (req: http.ServerRequest, res: http.ServerResponse) {
+
+    if (req.url === FAVICONURL) {
+        res.writeHead(200, { 'Content-Type': 'image/x-icon' });
+        res.end();
+        return;
+    }
+
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     var s1 = 0, s2 = 0, s3 = 0;
     s1 = spinModule.spin(1000000);

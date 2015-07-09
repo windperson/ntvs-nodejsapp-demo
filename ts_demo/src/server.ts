@@ -1,5 +1,5 @@
-﻿import http = require('http');
-
+﻿/// <reference path="../Scripts/typings/tsd.d.ts" />
+import http = require('http');
 import Hello = require('./Respond/HelloMessage');
 var port: number = process.env.port || 1337;
 http.createServer(function (req: http.ServerRequest, res: http.ServerResponse) {

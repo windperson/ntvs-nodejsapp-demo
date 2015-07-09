@@ -1,17 +1,18 @@
 ﻿var gulp = require('gulp');
-var tsc = require('gulp-tsc');
 var uglify = require('gulp-uglify');
+var ts = require('gulp-typescript');
 var sourcemaps = require('gulp-sourcemaps');
 var runseq = require('run-sequence');
+var merge = require('merge2');
 var del = require('del');
 var debug = require('gulp-debug');
 var vinylPaths = require('vinyl-paths');
 
 var paths = {
     typescripts : {
-        src : ['Scripts/**/*.d.ts', 'src/**/*.ts'],
+        src : ['src/**/*.ts'],
         out : ['src/**/*.js', 'src/**/*.js.map'],
-        dev_dest : '.',
+        dev_dest : 'src',
         package_dest : 'build',
         package_clean : ['build/**/*'],
         package_out : ['build/**/*.js']
@@ -19,15 +20,17 @@ var paths = {
 };
 
 gulp.task('compile:typescript', function () {
-    return gulp.src(paths.typescripts.src)
-    .pipe(tsc({
-        module: "CommonJS",
-        target: "ES5",
-        removeComments: true,
-        sourcemap: true,
-        sourceRoot: "",
-        outDir : "src"
-    })).pipe(gulp.dest(paths.typescripts.dev_dest));
+    var tsProject = ts.createProject('src/tsconfig.json', { sortOutput: true });
+    
+    return tsProject.src({ base: "" }).pipe(debug({ title: 'source' }))
+    .pipe(sourcemaps.init())
+    .pipe(ts(tsProject)).js
+    .pipe(sourcemaps.write('.', 
+        {
+        sourceRoot: function (file) { return ''; }, 
+        includeContent: false
+    }))
+    .pipe(gulp.dest(paths.typescripts.dev_dest)).pipe(debug({ title: 'generate' }));
 });
 
 gulp.task('clean', function () {
@@ -63,4 +66,6 @@ gulp.task('build:compress', function (callback) {
 });
 
 
-gulp.task('default', ['clean','compile:typescript'])
+gulp.task('default', function (callback) {
+    return runseq('clean', 'compile:typescript', callback);
+});

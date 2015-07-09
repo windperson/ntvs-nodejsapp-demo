@@ -4,13 +4,10 @@
 *.tmp
 *.js.map
 
-NodejsWebApp1/obj/
-NodejsWebApp1/node_modules/
+ts_demo/obj/
+ts_demo/node_modules/
 
-NodejsWebApp1/server.js
-NodejsWebApp1/Respond/HelloMessage.js
-NodejsWebApp1/profile_demo.js
-NodejsWebApp1/Profile_Demo/SpinFunc.js
 */testing/*.js
 build/
-NodejsWebApp1/src/**/*.js
+**/src/**/*.js
+.vs/

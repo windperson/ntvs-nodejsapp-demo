@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "NodejsWebApp1", "NodejsWebApp1\NodejsWebApp1.njsproj", "{331D3B23-0CD0-4514-AC87-A46E44C19FB8}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "ts_demo", "ts_demo\ts_demo.njsproj", "{331D3B23-0CD0-4514-AC87-A46E44C19FB8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{809EC389-01C0-4AD6-8026-ABBB6E43DCA1}"
 	ProjectSection(SolutionItems) = preProject
