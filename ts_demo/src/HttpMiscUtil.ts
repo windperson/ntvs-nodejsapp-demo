@@ -68,7 +68,7 @@
         }
 
         static get HttpCode(): number {
-            return Favicon._self.HttpCode;
+            return this._self.HttpCode;
         }
 
     }
