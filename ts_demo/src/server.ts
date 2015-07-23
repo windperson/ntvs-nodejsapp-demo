@@ -1,8 +1,8 @@
 ﻿/// <reference path="../Scripts/typings/tsd.d.ts" />
 /// <reference path="HttpMiscUtil.ts" />
 import http = require('http');
-import faviconUtil = require('./HttpMiscUtil');
-import Favicon = faviconUtil.HandleHttpMisc.Favicon;
+import HttpMiscUtil = require('./HttpMiscUtil');
+import Favicon = HttpMiscUtil.HandleHttpMisc.Favicon;
 
 import Hello = require('./Respond/HelloMessage');
 var port: number = process.env.port || 1337;

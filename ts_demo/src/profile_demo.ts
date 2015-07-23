@@ -12,7 +12,7 @@ var port: number = process.env.port || 1337;
 http.createServer(function (req: http.ServerRequest, res: http.ServerResponse) {
 
     if (req.url === Favicon.faviconURL) {
-        res.writeHead(Favicon.HttpCode, Favicon.MIME);
+        res.writeHead(HttpMiscUtil.HandleHttpMisc.Favicon.HttpCode, Favicon.MIME);
         res.end();
         return;
     }
