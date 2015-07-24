@@ -1,0 +1,86 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+	"files.exclude": {
+		"**/.git": true,
+		"**/.DS_Store": true,
+		"**/.idea": true,
+		"**/.vs": true,
+		"**/ts_demo/bin": true,
+		"**/ts_demo/build": true,
+		"**/ts_demo/obj": true,
+		"ts_demo/src/**/*.js": true,
+		"ts_demo/src/**/*.js.map": true
+	},
+	"javascript.validate.lint.semicolonsInsteadOfBlocks": "warning",
+	"json.schemas": [
+		{
+			"fileMatch": [
+				"/bower.json",
+				"/.bower.json"
+			],
+			"url": "http://json.schemastore.org/bower"
+		},
+		{
+			"fileMatch": [
+				"/ts_demo/package.json"
+			],
+			"url": "http://json.schemastore.org/package"
+		},
+		{
+			"fileMatch": [
+				"/project.json"
+			],
+			"url": "http://json.schemastore.org/project"
+		},
+		{
+			"fileMatch": [
+				"*.schema.json"
+			],
+			"url": "http://json-schema.org/draft-04/schema#"
+		},
+		{
+			"fileMatch": [
+				"/global.json"
+			],
+			"url": "http://json.schemastore.org/global"
+		},
+		{
+			"fileMatch": [
+				"/ticino.plugin.json"
+			],
+			"url": "http://opentools.azurewebsites.net/ticino.plugin.json"
+		},
+		{
+			"fileMatch": [
+				"/ts_demo/src/tsconfig.json"
+			],
+			"url": "http://json.schemastore.org/tsconfig"
+		},
+		{
+			"fileMatch": [
+				"/ts_demo/jsconfig.json"
+			],
+			"url": "http://opentools.azurewebsites.net/jsconfig"
+		},
+		{
+			"fileMatch": [
+				"/.bowerrc"
+			],
+			"url": "http://json.schemastore.org/bowerrc"
+		},
+		{
+			"fileMatch": [
+				"/.jshintrc"
+			],
+			"url": "http://json.schemastore.org/jshintrc"
+		},
+		{
+			"fileMatch": [
+				"/.jscsrc"
+			],
+			"url": "http://json.schemastore.org/jscsrc"
+		}
+	],
+	"typescript.useCodeSnippetsOnMethodSuggest": true
+	
+}

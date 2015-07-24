@@ -7,6 +7,12 @@
   "installed": {
     "mocha/mocha.d.ts": {
       "commit": "4ba73ef59f93e38a70573cfc46375de37b004635"
+    },
+    "bluebird/bluebird.d.ts": {
+      "commit": "977da240f263e88215a27cb44f2e31524ca07135"
+    },
+    "q/Q.d.ts": {
+      "commit": "977da240f263e88215a27cb44f2e31524ca07135"
     }
   }
 }

@@ -37,7 +37,6 @@
         }
     }
 
-    Favicon._initStaticMember();
     export class Favicon extends BaseHttpMisc {
 
         private static _self: Favicon;
@@ -49,6 +48,7 @@
             // do what a Class Static Ctor. should do.
             Favicon._self = new Favicon();
         }
+        
 
         static get faviconURL(): string {
             return '/favicon.ico';
@@ -68,4 +68,7 @@
             return Favicon._self.HttpCode;
         }
     }
+    
+    var favicon = Favicon;
+    favicon._initStaticMember();
 }
