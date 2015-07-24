@@ -3,7 +3,8 @@ var uglify = require('gulp-uglify');
 var ts = require('gulp-typescript');
 var sourcemaps = require('gulp-sourcemaps');
 var runseq = require('run-sequence');
-var merge = require('merge2');
+var merge = require('merge-stream');
+var shrinkwrap = require('gulp-shrinkwrap');
 var del = require('del');
 var debug = require('gulp-debug');
 var vinylPaths = require('vinyl-paths');
@@ -11,6 +12,7 @@ var vinylPaths = require('vinyl-paths');
 var paths = {
     typescripts : {
         src : ['src/**/*.ts'],
+        ts_config : ['src/tsconfig.json'],
         out : ['src/**/*.js', 'src/**/*.js.map'],
         dev_dest : 'src',
         package_dest : 'build',
@@ -22,7 +24,7 @@ var paths = {
 gulp.task('compile:typescript', function () {
     var tsProject = ts.createProject('src/tsconfig.json', { sortOutput: true });
     
-    return tsProject.src({ base: "" }).pipe(debug({ title: 'source' }))
+    return tsProject.src({ base: "" }).pipe(debug({ title: 'src:' }))
     .pipe(sourcemaps.init())
     .pipe(ts(tsProject)).js
     .pipe(sourcemaps.write('.', 
@@ -30,12 +32,12 @@ gulp.task('compile:typescript', function () {
         sourceRoot: function (file) { return ''; }, 
         includeContent: false
     }))
-    .pipe(gulp.dest(paths.typescripts.dev_dest)).pipe(debug({ title: 'generate' }));
+    .pipe(gulp.dest(paths.typescripts.dev_dest)).pipe(debug({ title: 'out:' }));
 });
 
 gulp.task('clean', function () {
     return gulp.src(paths.typescripts.out.concat(paths.typescripts.package_clean))
-    .pipe(vinylPaths(del)).pipe(debug({ title: 'delete:' }));
+    .pipe(vinylPaths(del)).pipe(debug({ title: 'del:' }));
 });
 
 gulp.task('rebuild', function (callback) {
@@ -43,10 +45,22 @@ gulp.task('rebuild', function (callback) {
 });
 
 gulp.task('package', function () {
-    return gulp.src(paths.typescripts.out)
+    var exportSrcFiles = paths.typescripts.out.concat(['!' + paths.typescripts.ts_config[0]]);
+    var copySrcTask = gulp.src(exportSrcFiles)
+    .pipe(debug({ title: 'src:' }))
+    .pipe(gulp.dest(paths.typescripts.package_dest + '/' + paths.typescripts.dev_dest))
+    .pipe(debug({ title: 'des:' }));
+    var copyNpmPackageJsonTask = gulp.src(['package.json'])
     .pipe(debug({ title: 'src:' }))
     .pipe(gulp.dest(paths.typescripts.package_dest))
-    .pipe(debug({ title: 'dest:' }))
+    .pipe(debug({ title: 'des' }));
+    
+    var shrinkwarpNpmTask = gulp.src('package.json')
+    .pipe(shrinkwrap())
+    .pipe(gulp.dest(paths.typescripts.package_dest))
+    .pipe(debug({ title: 'des' }));
+    
+    return merge(copySrcTask, copyNpmPackageJsonTask, shrinkwarpNpmTask);
 });
 
 gulp.task('compress', function () {
@@ -67,5 +81,5 @@ gulp.task('build:compress', function (callback) {
 
 
 gulp.task('default', function (callback) {
-    return runseq('clean', 'compile:typescript', callback);
+    return runseq('compile:typescript', callback);
 });

@@ -1,0 +1,1 @@
+gulp --no-color --cwd ts_demo %1
