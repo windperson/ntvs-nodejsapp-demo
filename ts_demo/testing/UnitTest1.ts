@@ -1,12 +1,13 @@
 ﻿import assert = require('assert');
-
-describe("Test Suite 1", () => {
-    it("Test A", () => {
-        assert.ok(true, "This shouldn't fail");
+import HelloMessage = require('../src/Respond/HelloMessage');
+describe("Test HelloMessage", () => {
+    it("Content Property should be \"Hello World!\"", () => {
+        var hello = new HelloMessage.HelloMessage();
+        assert.equal(hello.Content, "Hello World!", 'Content Property should be \"Hello World!\".');
     });
 
-    it("Test B", () => {
-        assert.ok(1 === 1, "This shouldn't fail");
-        assert.ok(false, "This should fail ts");
+    it("ContentType Property is text/plain", () => {
+        var hello = new HelloMessage.HelloMessage();
+        assert.equal(hello.ContentType, "text/plain", 'ContentType Property should be \"text/plain\".');
     });
 });

@@ -35,6 +35,10 @@ gulp.task('compile:typescript', function () {
     .pipe(gulp.dest(paths.typescripts.dev_dest)).pipe(debug({ title: 'out:' }));
 });
 
+gulp.task('watch', ['compile:typescript'], function () {
+    gulp.watch(paths.typescripts.src, ['compile:typescript']);
+});
+
 gulp.task('clean', function () {
     return gulp.src(paths.typescripts.out.concat(paths.typescripts.package_clean))
     .pipe(vinylPaths(del)).pipe(debug({ title: 'del:' }));

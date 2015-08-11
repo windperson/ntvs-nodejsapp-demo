@@ -29,9 +29,12 @@
 		"taskName": "clean",
 		"showOutput": "silent"		
 	},
-	
 	{
 		"taskName": "rebuild"
+	},
+	{
+		"taskName": "watch",
+		"showOutput": "silent"
 	}	
 	]
 }
